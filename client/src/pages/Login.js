@@ -14,8 +14,16 @@ const Login = ({ setIsAuth }) => {
     });
   };
   return (
-    <div className="loginpage">
-      <p>Sign In With Google to Continue</p>
+    <div
+      style={{
+        display: "flex",
+        justifyContent: "center",
+        flexDirection: "column",
+        alignItems: "center",
+        height: "600px",
+      }}
+    >
+      <p style={{ fontSize: "30px" }}>Sign In With Google to Continue</p>
       <button className="login-with-google-btn" onClick={signInWithGoogle}>
         Sign in with Google
       </button>
