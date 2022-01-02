@@ -6,6 +6,7 @@ import Login from "./pages/Login";
 import CreatePost from "./pages/CreatePost";
 import { signOut } from "firebase/auth";
 import { auth } from "./firebase-config";
+import Register from "./pages/Register";
 function App() {
   const [isAuth, setIsAuth] = useState(false);
 
@@ -23,7 +24,10 @@ function App() {
         <Link to="/">Home</Link>
 
         {!isAuth ? (
-          <Link to="/login">Login</Link>
+          <>
+            <Link to="/login">Login</Link>
+            <Link to="/register"> Register</Link>
+          </>
         ) : (
           <>
             <Link to="/create_post">Create Post</Link>
@@ -36,6 +40,7 @@ function App() {
         <Route path="/login" element={<Login setIsAuth={setIsAuth} />} />
         {/* //passing state as prop to login page */}
         <Route path="/create_post" element={<CreatePost isAuth={isAuth} />} />
+        <Route path="/Register" element={<Register setIsAuth={setIsAuth} />} />
       </Routes>
     </Router>
   );
