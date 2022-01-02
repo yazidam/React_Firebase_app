@@ -8,7 +8,7 @@ import { signOut } from "firebase/auth";
 import { auth } from "./firebase-config";
 import Register from "./pages/Register";
 function App() {
-  const [isAuth, setIsAuth] = useState(false);
+  const [isAuth, setIsAuth] = useState(localStorage.getItem("isAuth"));
 
   const signOutUser = () => {
     signOut(auth).then((res) => {
@@ -36,7 +36,7 @@ function App() {
         )}
       </nav>
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route path="/" element={<Home isAuth={isAuth} />} />
         <Route path="/login" element={<Login setIsAuth={setIsAuth} />} />
         {/* //passing state as prop to login page */}
         <Route path="/create_post" element={<CreatePost isAuth={isAuth} />} />
